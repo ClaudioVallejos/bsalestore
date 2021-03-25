@@ -1,5 +1,5 @@
 const mysql = require("mysql");
-const bd = require("./bd.json");
+const bd = require("./env.json");
 
 const objConnection = {
   host: bd.mysql.host,
@@ -9,10 +9,9 @@ const objConnection = {
   database: bd.mysql.database,
 };
 
-
+const myConnection = mysql.createConnection(objConnection);
 
 function handleDiscconect() {
-  const myConnection = mysql.createConnection(objConnection);
   myConnection.connect((err) => {
     if (err) {
       console.log(`Ops! there was a mistake: ${err}`);
@@ -31,7 +30,7 @@ function handleDiscconect() {
       throw err;
     }
   });
-
+  
   module.exports = myConnection;
   
 }

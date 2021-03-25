@@ -1,15 +1,33 @@
-const connection = require("../config/conection");
+const connection = require('../config/conection');
 
-function getCategory() {
-  if (connection) {
-    let sql = "select * from category";
-    connection.query(sql, (error, res) => {
-      if (error) throw error;
-      callback(res);
-    });
+const dataModels = {
+  getCategories: (callback) => {
+    if (connection) {
+      let sql = "select * from category";
+      connection.query(sql, (err, res) => {
+        if (err) throw err;
+        callback(res);
+      });
+    }
+  },
+  getOneCategory: (categoryId ,callback) => {
+    if (connection) {
+      let sql = `SELECT * FROM category WHERE id = ${connection.escape(categoryId)}`;
+      connection.query(sql, (err, res) => {
+        if (err) throw err;
+        callback(res);
+      });
+    }
+  },
+  getSpecificCategory: ( inputText, callback ) => {
+    if (connection){
+      let sql = `SELECT * FROM category WHERE name LIKE "%${inputText}%" `;
+      connection.query(sql, (err, res) => {
+        if(err) throw err;
+        callback(res);
+      });
+    }
   }
-}
-
-module.exports = {
-    getCategory
 };
+
+module.exports = dataModels;
