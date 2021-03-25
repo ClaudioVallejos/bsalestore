@@ -1,9 +1,9 @@
 const connection = require('../config/conection');
 
 const dataModels = {
-  getCategories: (callback) => {
+  getAllCategories: (callback) => {
     if (connection) {
-      let sql = "select * from category";
+      let sql = "SELECT * FROM category";
       connection.query(sql, (err, res) => {
         if (err) throw err;
         callback(res);

@@ -12,6 +12,7 @@ app.listen(port, () => {
   console.log(`Servidor corriendo de pana en http://localhost:${port}`);
 });
 
-app.use(require('../routes/category.route'))
+app.use(require('../routes/category.route'));
+app.use(require('../routes/product.route'));
 
 module.exports = app;

@@ -1,11 +1,11 @@
 const mysqlConnection = require("../config/conection");
 const dataModels = require("../models/category.model");
 
-function showCategories(req, res) {
+function showAllCategories(req, res) {
   if (!mysqlConnection) {
     res.json({ message: "category controller no have conection to BD" });
   } else {
-    dataModels.getCategories((data, err) => {
+    dataModels.getAllCategories((data, err) => {
       if (err) throw err;
       data ? res.json(data) : res.json({ message: "query mistake" });
     });
@@ -40,7 +40,7 @@ function showSpecificCategory(req, res) {
 }
 
 module.exports = {
-  showCategories,
+  showAllCategories,
   showOneCategory,
   showSpecificCategory
 };
