@@ -51,7 +51,7 @@ header a{
 }
 
 .brand a{
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 header a:hover{
@@ -110,7 +110,30 @@ footer {
 }
 
 .product-price{
+    display: flex !important;
+    width: 80%;
+    justify-content: space-between !important;
     margin-top: 0px;
     font-size: 2rem;
     background-color: white;
+}
+
+.btn-cart {
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    color: blanchedalmond;
+    background-color: grey;
+    outline: none;
+}
+
+hr {
+    color: black;
+}
+
+.cart-checkout{
+    width: 5rem;
+    height: 5rem;
+    border: none;
+    background-color: transparent;
 }
